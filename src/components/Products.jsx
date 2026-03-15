@@ -27,19 +27,26 @@ const Products = () => {
   return (
     <section id="products" style={{ padding: '140px 0', background: 'var(--bg)' }}>
       <div className="container">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '60px' }}>
+        <div className="products-header" style={{ 
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'flex-end', 
+          marginBottom: '60px',
+          gap: '32px'
+        }}>
           <div>
             <span className="badge">Products</span>
             <h2 style={{ marginTop: '20px' }}>Choose Your Hydration</h2>
           </div>
           {/* Toggle */}
-          <div style={{
+          <div className="product-toggle" style={{
             display: 'flex',
             background: 'var(--white)',
             borderRadius: '60px',
             padding: '4px',
             border: '1px solid rgba(10,37,64,0.06)',
-            boxShadow: 'var(--shadow)'
+            boxShadow: 'var(--shadow)',
+            flexShrink: 0
           }}>
             <button onClick={() => setMode('order')} style={{
               padding: '12px 24px',
@@ -51,7 +58,8 @@ const Products = () => {
               cursor: 'pointer',
               background: mode === 'order' ? 'var(--primary)' : 'transparent',
               color: mode === 'order' ? 'white' : 'var(--text-dim)',
-              transition: 'var(--transition)'
+              transition: 'var(--transition)',
+              whiteSpace: 'nowrap'
             }}>One-Time</button>
             <button onClick={() => setMode('subscribe')} style={{
               padding: '12px 24px',
@@ -63,7 +71,8 @@ const Products = () => {
               cursor: 'pointer',
               background: mode === 'subscribe' ? 'var(--accent)' : 'transparent',
               color: mode === 'subscribe' ? 'white' : 'var(--text-dim)',
-              transition: 'var(--transition)'
+              transition: 'var(--transition)',
+              whiteSpace: 'nowrap'
             }}>Subscribe ✦</button>
             <button onClick={() => setMode('wholesale')} style={{
               padding: '12px 24px',
@@ -75,7 +84,8 @@ const Products = () => {
               cursor: 'pointer',
               background: mode === 'wholesale' ? 'var(--primary)' : 'transparent',
               color: mode === 'wholesale' ? 'white' : 'var(--text-dim)',
-              transition: 'var(--transition)'
+              transition: 'var(--transition)',
+              whiteSpace: 'nowrap'
             }}>Wholesale</button>
           </div>
         </div>
