@@ -256,6 +256,10 @@ h3 { font-size: 1.8rem; }
   .nav-links, .nav-cta {
     display: none !important;
   }
+
+  .header-cart {
+    margin-right: 12px;
+  }
   
   .menu-toggle {
     display: flex !important;

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Hero from './components/Hero';
 import Standard from './components/Standard';
 import Products from './components/Products';
 import Impact from './components/Impact';
 import Sustainability from './components/Sustainability';
+import { CartProvider, useCart } from './context/CartContext';
+import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 
-const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+const AppContent = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { setIsCartOpen, cartCount } = useCart();
 
   return (
     <div className="app">
@@ -83,8 +87,41 @@ const App = () => {
             )}
           </div>
 
+          {/* Cart Icon — Always Visible */}
+          <div 
+            className="header-cart"
+            onClick={() => setIsCartOpen(true)}
+            style={{ 
+              position: 'relative', 
+              cursor: 'pointer', 
+              color: 'white', 
+              padding: '10px', 
+              background: 'rgba(255, 255, 255, 0.08)', 
+              borderRadius: '12px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'var(--transition)'
+            }}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+            {cartCount > 0 && (
+              <span style={{ 
+                position: 'absolute', top: '-5px', right: '-5px', 
+                background: 'var(--accent)', color: 'var(--primary)', 
+                width: '18px', height: '18px', borderRadius: '50%', 
+                fontSize: '0.7rem', fontWeight: 900, display: 'flex', 
+                alignItems: 'center', justifyContent: 'center',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+              }}>
+                {cartCount}
+              </span>
+            )}
+          </div>
+
           {/* CTA — Desktop right */}
-          <div className="nav-cta" style={{ display: 'flex' }}>
+          <div className="nav-cta">
             <a href="#products">
               <button className="btn-primary" style={{ padding: '10px 24px', fontSize: '0.85rem' }}>
                 Order Now
@@ -93,29 +130,61 @@ const App = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Overlay */}
-        {isMenuOpen && (
-          <div style={{
-            position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh',
-            background: '#0a2540', // Fully opaque for better readability
-            padding: '120px 32px 40px',
-            display: 'flex', flexDirection: 'column', gap: '32px',
-            zIndex: 999,
-            animation: 'fadeUp 0.4s ease-out'
-          }}>
-            <a href="#home" onClick={() => setIsMenuOpen(false)} style={{ color: 'white', fontSize: '1.6rem', fontWeight: 700 }}>home</a>
-            <a href="#standard" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.6rem', fontWeight: 700 }}>our story</a>
-            <a href="#products" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.6rem', fontWeight: 700 }}>drink now</a>
-            <a href="#impact" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.6rem', fontWeight: 700 }}>service</a>
-            <a href="#contact" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.6rem', fontWeight: 700 }}>contacts</a>
-            <div style={{ marginTop: 'auto' }}>
-              <a href="#products" onClick={() => setIsMenuOpen(false)}>
-                <button className="btn-primary" style={{ width: '100%', padding: '20px' }}>Order Now</button>
-              </a>
+      </nav>
+
+      <Cart />
+      <Checkout />
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh',
+          background: '#0a2540', // Fully opaque for better readability
+          padding: '120px 32px 40px',
+          display: 'flex', flexDirection: 'column', gap: '32px',
+          zIndex: 999,
+          animation: 'fadeUp 0.4s ease-out',
+          overflowY: 'auto' // Ensure it's scrollable if links overflow
+        }}>
+          <a href="#home" onClick={() => setIsMenuOpen(false)} style={{ color: 'white', fontSize: '1.6rem', fontWeight: 700 }}>home</a>
+          <a href="#standard" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.6rem', fontWeight: 700 }}>our story</a>
+          <a href="#products" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.6rem', fontWeight: 700 }}>drink now</a>
+          <a href="#impact" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.6rem', fontWeight: 700 }}>service</a>
+          <a href="#contact" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.6rem', fontWeight: 700 }}>contacts</a>
+          
+          <div style={{ marginTop: '20px' }}>
+            <div 
+              onClick={() => { setIsCartOpen(true); setIsMenuOpen(false); }}
+              style={{ 
+                display: 'flex', alignItems: 'center', gap: '12px',
+                color: 'white', fontSize: '1.4rem', fontWeight: 600,
+                padding: '20px', background: 'rgba(255,255,255,0.05)',
+                borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)'
+              }}
+            >
+              <div style={{ position: 'relative' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+                {cartCount > 0 && (
+                  <span style={{ 
+                    position: 'absolute', top: '-10px', right: '-10px', 
+                    background: 'var(--accent)', color: 'var(--primary)', 
+                    width: '20px', height: '20px', borderRadius: '50%', 
+                    fontSize: '0.7rem', fontWeight: 900, display: 'flex', 
+                    alignItems: 'center', justifyContent: 'center' 
+                  }}>{cartCount}</span>
+                )}
+              </div>
+              View Basket
             </div>
           </div>
-        )}
-      </nav>
+
+          <div style={{ marginTop: 'auto' }}>
+            <a href="#products" onClick={() => setIsMenuOpen(false)}>
+              <button className="btn-primary" style={{ width: '100%', padding: '20px' }}>Order Now</button>
+            </a>
+          </div>
+        </div>
+      )}
 
       <main>
         <Hero />
@@ -186,5 +255,11 @@ const App = () => {
     </div>
   );
 }
+
+const App = () => (
+  <CartProvider>
+    <AppContent />
+  </CartProvider>
+);
 
 export default App;

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useCart } from '../context/CartContext';
 
 const Products = () => {
   const [mode, setMode] = useState('subscribe');
+  const { addToCart } = useCart();
 
   const products = [
     {
@@ -153,7 +155,11 @@ const Products = () => {
                       </button>
                     </a>
                   ) : (
-                    <button className="btn-primary" style={{ padding: '12px 28px', fontSize: '0.85rem' }}>
+                    <button 
+                      className="btn-primary" 
+                      style={{ padding: '12px 28px', fontSize: '0.85rem' }}
+                      onClick={() => addToCart(p, mode)}
+                    >
                       Add to Cart
                     </button>
                   )}

@@ -1,6 +1,8 @@
 import React from 'react';
+import { useCart } from '../context/CartContext';
 
 const Hero = () => {
+  const { setIsCartOpen } = useCart();
   return (
     <section id="home" className="hero-section">
       {/* Background Gradients */}
@@ -67,12 +69,19 @@ const Hero = () => {
             </p>
             
             <div className="hero-actions" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-              <a href="#products" style={{ width: '100%' }}>
-                <button className="btn-primary" style={{ background: 'var(--white)', color: 'var(--primary)', width: '100%' }}>
+              <div style={{ width: '100%' }}>
+                <button 
+                  className="btn-primary" 
+                  style={{ background: 'var(--white)', color: 'var(--primary)', width: '100%' }}
+                  onClick={() => {
+                    const el = document.getElementById('products');
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   Order Now
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </button>
-              </a>
+              </div>
               <a href="#standard" style={{ width: '100%' }}>
                 <button className="btn-outline" style={{ borderColor: 'rgba(255,255,255,0.3)', color: 'white', width: '100%' }}>
                   Our Story
