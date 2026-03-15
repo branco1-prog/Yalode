@@ -66,15 +66,15 @@ const Hero = () => {
               Balanced minerals, neutral pH, and 12-stage purification.
             </p>
             
-            <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-              <a href="#products">
-                <button className="btn-primary" style={{ background: 'var(--white)', color: 'var(--primary)' }}>
+            <div className="hero-actions" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+              <a href="#products" style={{ width: '100%' }}>
+                <button className="btn-primary" style={{ background: 'var(--white)', color: 'var(--primary)', width: '100%' }}>
                   Order Now
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </button>
               </a>
-              <a href="#standard">
-                <button className="btn-outline" style={{ borderColor: 'rgba(255,255,255,0.3)', color: 'white' }}>
+              <a href="#standard" style={{ width: '100%' }}>
+                <button className="btn-outline" style={{ borderColor: 'rgba(255,255,255,0.3)', color: 'white', width: '100%' }}>
                   Our Story
                 </button>
               </a>
@@ -106,12 +106,12 @@ const Hero = () => {
             ))}
           </div>
           
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
             <a href="#products">
               <button className="blob-cta" style={{ 
                 background: 'var(--accent)', 
-                width: '160px', height: '160px',
-                fontSize: '1.1rem', color: 'var(--primary)'
+                width: '120px', height: '120px',
+                fontSize: '0.9rem', color: 'var(--primary)'
               }}>
                 DRINK NOW
               </button>

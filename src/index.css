@@ -248,7 +248,7 @@ h3 { font-size: 1.8rem; }
 /* ─── Mobile Optimizations ─── */
 @media (max-width: 1024px) {
   .container {
-    padding: 0 40px;
+    padding: 0 32px;
   }
 }
 
@@ -262,7 +262,6 @@ h3 { font-size: 1.8rem; }
     align-items: center;
     justify-content: center;
     z-index: 1001;
-    padding: 8px;
   }
   
   :root {
@@ -270,25 +269,26 @@ h3 { font-size: 1.8rem; }
   }
   
   .container {
-    padding: 0 20px;
+    padding: 0 24px;
   }
 
   h1 {
-    font-size: 3.2rem !important;
+    font-size: 2.8rem !important;
+    letter-spacing: -0.04em !important;
   }
 
   h2 {
-    font-size: 2.2rem !important;
+    font-size: 2rem !important;
   }
   
   section {
-    padding: 80px 0 !important;
-    overflow: hidden; /* Prevent overflow from animated elements */
+    padding: 60px 0 !important;
+    overflow: hidden; 
   }
 
   .grid-2 {
     grid-template-columns: 1fr !important;
-    gap: 48px !important;
+    gap: 32px !important;
   }
 
   .stat-row {
@@ -303,7 +303,7 @@ h3 { font-size: 1.8rem; }
 
 @media (max-width: 480px) {
   h1, .responsive-h1 {
-    font-size: 2.6rem !important;
+    font-size: 2.4rem !important;
   }
   
   .container {
@@ -312,8 +312,8 @@ h3 { font-size: 1.8rem; }
 
   .grid-responsive-stats {
     flex-direction: column !important;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
@@ -367,51 +367,51 @@ h3 { font-size: 1.8rem; }
 @media (max-width: 768px) {
   .hero-section {
     min-height: 0;
-    padding: 120px 0 60px !important;
+    padding: 100px 0 40px !important;
   }
   .hero-main {
     display: flex !important;
-    flex-direction: column; /* Stack naturally: text then bottle */
-    gap: 40px !important;
+    flex-direction: column; 
+    gap: 32px !important;
     text-align: center;
   }
   .hero-bottle {
     position: relative;
-    top: 0;
-    right: 0;
     width: 100%;
-    max-width: 280px;
+    max-width: 220px;
     margin: 0 auto;
     z-index: 1;
-    opacity: 1;
+    order: 2; /* Bottle after text for natural flow */
   }
   .hero-bottle-img {
     max-width: 100%;
-    filter: drop-shadow(0 20px 60px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
   }
   .hero-text {
     margin-top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    order: 1;
   }
   .responsive-h1 {
-    font-size: 2.8rem !important;
+    font-size: 2.4rem !important;
     max-width: 100%;
-    margin-bottom: 24px !important;
+    margin-bottom: 20px !important;
   }
   .hero-text p {
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
     margin-bottom: 32px !important;
   }
-  .hero-text div {
+  .hero-text .hero-actions {
     flex-direction: column;
     width: 100%;
-    gap: 16px !important;
+    gap: 12px !important;
   }
   .hero-text .btn-primary, .hero-text .btn-outline {
     width: 100%;
     justify-content: center;
+    padding: 14px 24px !important;
   }
 }
 

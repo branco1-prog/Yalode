@@ -61,12 +61,25 @@ const App = () => {
           <div 
             className="menu-toggle"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            style={{ cursor: 'pointer', color: 'white' }}
+            style={{ 
+              cursor: 'pointer', 
+              color: 'white',
+              display: 'none', // Hidden on desktop by index.css override
+              alignItems: 'center',
+              gap: '8px',
+              padding: '12px',
+              background: 'rgba(255, 255, 255, 0.05)',
+              borderRadius: '12px',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}
           >
+            <span style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              {isMenuOpen ? 'Close' : 'Menu'}
+            </span>
             {isMenuOpen ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
             ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
             )}
           </div>
 
@@ -84,9 +97,8 @@ const App = () => {
         {isMenuOpen && (
           <div style={{
             position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh',
-            background: 'rgba(10, 37, 64, 0.98)',
-            backdropFilter: 'blur(24px)',
-            padding: '100px 32px 40px',
+            background: '#0a2540', // Fully opaque for better readability
+            padding: '120px 32px 40px',
             display: 'flex', flexDirection: 'column', gap: '32px',
             zIndex: 999,
             animation: 'fadeUp 0.4s ease-out'
