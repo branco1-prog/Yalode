@@ -83,21 +83,24 @@ const App = () => {
         {/* Mobile Menu Overlay */}
         {isMenuOpen && (
           <div style={{
-            position: 'absolute', top: '100%', left: 0, width: '100%',
+            position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh',
             background: 'rgba(10, 37, 64, 0.98)',
-            padding: '40px 24px',
-            display: 'flex', flexDirection: 'column', gap: '24px',
-            borderTop: '1px solid rgba(255,255,255,0.1)',
-            zIndex: 999
+            backdropFilter: 'blur(24px)',
+            padding: '100px 32px 40px',
+            display: 'flex', flexDirection: 'column', gap: '32px',
+            zIndex: 999,
+            animation: 'fadeUp 0.4s ease-out'
           }}>
-            <a href="#home" onClick={() => setIsMenuOpen(false)} style={{ color: 'white', fontSize: '1.2rem', fontWeight: 600 }}>home</a>
-            <a href="#standard" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', fontWeight: 600 }}>our story</a>
-            <a href="#products" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', fontWeight: 600 }}>drink now</a>
-            <a href="#impact" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', fontWeight: 600 }}>service</a>
-            <a href="#contact" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.2rem', fontWeight: 600 }}>contacts</a>
-            <a href="#products" onClick={() => setIsMenuOpen(false)}>
-              <button className="btn-primary" style={{ width: '100%', padding: '16px' }}>Order Now</button>
-            </a>
+            <a href="#home" onClick={() => setIsMenuOpen(false)} style={{ color: 'white', fontSize: '1.6rem', fontWeight: 700 }}>home</a>
+            <a href="#standard" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.6rem', fontWeight: 700 }}>our story</a>
+            <a href="#products" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.6rem', fontWeight: 700 }}>drink now</a>
+            <a href="#impact" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.6rem', fontWeight: 700 }}>service</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.6rem', fontWeight: 700 }}>contacts</a>
+            <div style={{ marginTop: 'auto' }}>
+              <a href="#products" onClick={() => setIsMenuOpen(false)}>
+                <button className="btn-primary" style={{ width: '100%', padding: '20px' }}>Order Now</button>
+              </a>
+            </div>
           </div>
         )}
       </nav>

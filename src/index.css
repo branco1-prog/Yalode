@@ -21,7 +21,11 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html, body { 
+  scroll-behavior: smooth; 
+  overflow-x: hidden;
+  width: 100%;
+}
 
 body {
   font-family: var(--font);
@@ -29,6 +33,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
+  position: relative;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -265,7 +270,7 @@ h3 { font-size: 1.8rem; }
   }
   
   .container {
-    padding: 0 24px;
+    padding: 0 20px;
   }
 
   h1 {
@@ -362,34 +367,51 @@ h3 { font-size: 1.8rem; }
 @media (max-width: 768px) {
   .hero-section {
     min-height: 0;
-    padding: 120px 0 80px !important;
+    padding: 120px 0 60px !important;
   }
   .hero-main {
     display: flex !important;
-    flex-direction: column-reverse;
-    gap: 0 !important;
+    flex-direction: column; /* Stack naturally: text then bottle */
+    gap: 40px !important;
+    text-align: center;
   }
   .hero-bottle {
-    position: absolute;
-    top: 50px; /* Align near the H1 */
-    right: -20px;
-    width: 220px; /* Smaller bottle on tablet/mobile */
-    z-index: 0;
-    opacity: 0.9;
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    z-index: 1;
+    opacity: 1;
   }
   .hero-bottle-img {
     max-width: 100%;
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
-  }
-  .hero-bottle-shadow {
-    display: none;
+    filter: drop-shadow(0 20px 60px rgba(0,0,0,0.3));
   }
   .hero-text {
-    margin-top: 20px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .responsive-h1 {
-    font-size: 3.2rem !important;
-    max-width: 65%; /* Constrain text so it doesn't overlap the bottle */
+    font-size: 2.8rem !important;
+    max-width: 100%;
+    margin-bottom: 24px !important;
+  }
+  .hero-text p {
+    font-size: 1.1rem !important;
+    margin-bottom: 32px !important;
+  }
+  .hero-text div {
+    flex-direction: column;
+    width: 100%;
+    gap: 16px !important;
+  }
+  .hero-text .btn-primary, .hero-text .btn-outline {
+    width: 100%;
+    justify-content: center;
   }
 }
 
