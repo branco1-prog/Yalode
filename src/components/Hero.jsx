@@ -29,7 +29,7 @@ const Hero = () => {
           <div className="fade-up hero-bottle">
 
             <img
-              src="/assets/bottle_uploaded_transparent.png"
+              src="/assets/yalode_bottle_nobg.png"
               alt="Yalode Water Bottle"
               className="animate-float hero-bottle-img"
             />

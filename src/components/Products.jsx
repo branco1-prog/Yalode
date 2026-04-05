@@ -11,7 +11,7 @@ const Products = () => {
       name: '19L Dispenser Bottle',
       price: '₦1,200',
       subPrice: '₦950',
-      image: '/assets/bottle_19l_3d_1773530460369.png',
+      image: '/assets/yalode_bottle.png',
       tag: 'Most Popular',
       desc: 'Perfect for homes and offices. Fits all standard dispensers.'
     },
@@ -20,7 +20,7 @@ const Products = () => {
       name: '300ml Premium Cup (Pack of 30)',
       price: '₦3,000',
       subPrice: '₦2,500',
-      image: '/assets/cup_300ml_3d_1773530474189.png',
+      image: '/assets/yalode_cup_new.png',
       tag: 'Events',
       desc: 'Ideal for meetings, parties, and on-the-go hydration. Convenient pack of 30.'
     }

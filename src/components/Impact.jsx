@@ -61,7 +61,7 @@ const Impact = () => {
             overflow: 'hidden'
           }}>
             <img
-              src="/assets/hero.png"
+              src="/assets/yalode_display.png"
               alt="Yalode Water Products"
               style={{
                 width: '100%',
