@@ -33,3 +33,13 @@ dist-ssr
 
 # Vercel
 .vercel
+
+# Build artifacts
+dist*
+yalode-water-build*
+*.zip
+yalode-water-build/
+public/test-crop.html
+remove_bg.py
+venv/
+

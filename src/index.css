@@ -328,6 +328,11 @@ h3 { font-size: 1.8rem; }
     border-left: none;
     border-top: 2px solid var(--card-border);
   }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -368,7 +373,7 @@ h3 { font-size: 1.8rem; }
 
 .hero-bottle-img {
   width: 100%;
-  max-width: 480px;
+  max-width: 650px;
   display: block;
   margin: 0 auto;
   filter: drop-shadow(0 40px 100px rgba(0,0,0,0.5));
@@ -407,7 +412,7 @@ h3 { font-size: 1.8rem; }
   .hero-bottle {
     position: relative;
     width: 100%;
-    max-width: 220px;
+    max-width: 380px;
     margin: 0 auto;
     z-index: 1;
     order: 2; /* Bottle after text for natural flow */
@@ -446,9 +451,10 @@ h3 { font-size: 1.8rem; }
 
 @media (max-width: 480px) {
   .hero-bottle {
-    width: 180px;
-    right: -30px;
-    top: 40px;
+    width: 100%;
+    max-width: 320px;
+    right: 0;
+    top: 0;
   }
   .responsive-h1 {
     font-size: 2.6rem !important;

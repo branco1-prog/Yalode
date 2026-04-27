@@ -30,20 +30,8 @@ const AppContent = () => {
           alignItems: 'center' 
         }}>
           {/* Logo — left */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <svg width="32" height="40" viewBox="0 0 24 30">
-              <path d="M12 2 C12 2 2 14 2 19 C2 24.5 6.5 28 12 28 C17.5 28 22 24.5 22 19 C22 14 12 2 12 2Z" fill="url(#dropGrad)" />
-              <path d="M8 18 Q12 14 16 18" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.8"/>
-              <path d="M9 21 Q12 18 15 21" stroke="white" strokeWidth="1.2" fill="none" strokeLinecap="round" opacity="0.5"/>
-              <defs><linearGradient id="dropGrad" x1="12" y1="2" x2="12" y2="28"><stop offset="0%" stopColor="#2bafb0"/><stop offset="100%" stopColor="#0a2540"/></linearGradient></defs>
-            </svg>
-            <span style={{ 
-              fontSize: '1.2rem', 
-              fontWeight: 800, 
-              color: 'white',
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase'
-            }}>Yalode</span>
+          <div style={{ display: 'flex', alignItems: 'center', height: '40px' }}>
+            <img src="/assets/logo.png" alt="Yalode Logo" style={{ height: '120px', objectFit: 'contain', transform: 'translateX(-10px)' }} />
           </div>
 
           {/* Links — Desktop CENTER */}
@@ -196,54 +184,64 @@ const AppContent = () => {
 
       {/* Footer */}
       <footer id="contact" style={{
-        padding: '100px 0 40px',
-        background: 'var(--white)',
-        borderTop: '1px solid rgba(10,37,64,0.04)'
+        padding: '80px 0 40px',
+        background: '#f5f7fa',
+        borderTop: '1px solid rgba(10,37,64,0.06)'
       }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr', gap: '60px', marginBottom: '60px' }}>
+          <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1.2fr', gap: '48px', marginBottom: '48px' }}>
+            {/* Brand Column */}
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px' }}>
-                <svg width="20" height="26" viewBox="0 0 24 30" fill="none">
-                  <path d="M12 2 C12 2 2 14 2 19 C2 24.5 6.5 28 12 28 C17.5 28 22 24.5 22 19 C22 14 12 2 12 2Z" fill="url(#dropGradF)" />
-                  <path d="M8 18 Q12 14 16 18" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.8"/>
-                  <path d="M9 21 Q12 18 15 21" stroke="white" strokeWidth="1.2" fill="none" strokeLinecap="round" opacity="0.5"/>
-                  <defs><linearGradient id="dropGradF" x1="12" y1="2" x2="12" y2="28"><stop offset="0%" stopColor="#2bafb0"/><stop offset="100%" stopColor="#0a2540"/></linearGradient></defs>
-                </svg>
-                <span style={{ fontWeight: 800, fontSize: '1.05rem', color: 'var(--navy)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Yalode</span>
-              </div>
-              <p style={{ color: 'var(--text-dim)', maxWidth: '280px', fontSize: '0.95rem' }}>
+              <img src="/assets/logo_dark.png" alt="Yalode Logo" style={{ height: '50px', objectFit: 'contain', marginBottom: '16px' }} />
+              <p style={{ color: 'var(--text-dim)', maxWidth: '280px', fontSize: '0.9rem', lineHeight: 1.7 }}>
                 Nigeria's premium choice for pure, mineral-rich hydration since 1982.
               </p>
             </div>
+
+            {/* Products Column */}
             <div>
-              <h4 style={{ marginBottom: '20px', fontSize: '0.9rem', color: 'var(--navy)' }}>Products</h4>
+              <h4 style={{ marginBottom: '20px', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Products</h4>
               <ul style={{ listStyle: 'none', display: 'grid', gap: '12px', color: 'var(--text-dim)', fontSize: '0.9rem' }}>
                 <li><a href="#products">19L Bottles</a></li>
                 <li><a href="#products">300ml Cups</a></li>
                 <li><a href="#products">Subscriptions</a></li>
               </ul>
             </div>
+
+            {/* Company Column */}
             <div>
-              <h4 style={{ marginBottom: '20px', fontSize: '0.9rem', color: 'var(--navy)' }}>Company</h4>
+              <h4 style={{ marginBottom: '20px', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Company</h4>
               <ul style={{ listStyle: 'none', display: 'grid', gap: '12px', color: 'var(--text-dim)', fontSize: '0.9rem' }}>
                 <li><a href="#standard">Our Story</a></li>
                 <li><a href="#impact">Our Impact</a></li>
                 <li><a href="#sustainability">Sustainability</a></li>
               </ul>
             </div>
+
+            {/* Contact Column */}
             <div>
-              <h4 style={{ marginBottom: '20px', fontSize: '0.9rem', color: 'var(--navy)' }}>Contact</h4>
-              <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem', lineHeight: 1.8 }}>
-                27 Oyeleke St, Ikeja Lagos<br />
-                08022233348<br />
-                08098961008
-              </p>
+              <h4 style={{ marginBottom: '20px', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Contact Us</h4>
+              <div style={{ display: 'grid', gap: '14px', color: 'var(--text-dim)', fontSize: '0.9rem' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <span style={{ fontSize: '1rem', flexShrink: 0 }}>📍</span>
+                  <span>27 Oyeleke St, Ikeja, Lagos</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span style={{ fontSize: '1rem', flexShrink: 0 }}>📞</span>
+                  <span>08022233348</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span style={{ fontSize: '1rem', flexShrink: 0 }}>📞</span>
+                  <span>08098961008</span>
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* Bottom Bar */}
           <div style={{
             paddingTop: '24px',
-            borderTop: '1px solid rgba(10,37,64,0.06)',
+            borderTop: '1px solid rgba(10,37,64,0.08)',
             textAlign: 'center',
             color: 'var(--text-dim)',
             fontSize: '0.8rem'

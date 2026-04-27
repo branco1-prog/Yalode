@@ -20,7 +20,7 @@ const Products = () => {
       name: '300ml Premium Cup (Pack of 30)',
       price: '₦3,000',
       subPrice: '₦2,500',
-      image: '/assets/yalode_cup_new.png',
+      image: '/assets/yalode_30pack.png',
       tag: 'Events',
       desc: 'Ideal for meetings, parties, and on-the-go hydration. Convenient pack of 30.'
     }
