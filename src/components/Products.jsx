@@ -133,7 +133,7 @@ const Products = () => {
                   <div>
                     {mode === 'wholesale' ? (
                       <span style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--navy)' }}>
-                        Contact for prices
+                        Contact for prices.
                       </span>
                     ) : (
                       <>
