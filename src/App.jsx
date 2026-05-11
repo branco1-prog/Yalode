@@ -248,6 +248,34 @@ const AppContent = () => {
           }}>
             © 2026 Yalode Water Company. A Royal Water Limited Brand.
           </div>
+           <a
+  href="https://wa.me/2348022233348?text=Hello%20I%20am%20interested%20in%20Yalode%20Water"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    position: "fixed",
+    bottom: "20px",
+    right: "20px",
+    width: "60px",
+    height: "60px",
+    backgroundColor: "#25D366",
+    borderRadius: "50%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "#fff",
+    fontSize: "28px",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+    zIndex: 1000,
+    textDecoration: "none"
+  }}
+>
+  <img 
+  src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+  alt="WhatsApp" 
+  style={{ width: "30px", height: "30px" }} 
+/>
+</a>
         </div>
       </footer>
     </div>
